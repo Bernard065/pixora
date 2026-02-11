@@ -3,7 +3,7 @@ import { signIn, useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, Sparkles, X } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
