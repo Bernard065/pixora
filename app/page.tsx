@@ -1,5 +1,6 @@
 import Features from '@/modules/features'
 import Hero from '@/modules/hero'
+import Pricing from '@/modules/pricing'
 import React from 'react'
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Hero />
       <Features />
+      <Pricing />
     </div>
   )
 }
