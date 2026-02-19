@@ -1,7 +1,7 @@
+import Editor from '@/modules/editor'
 import Features from '@/modules/features'
 import Hero from '@/modules/hero'
 import Pricing from '@/modules/pricing'
-import React from 'react'
 
 const Home = () => {
   return (
@@ -9,6 +9,7 @@ const Home = () => {
       <Hero />
       <Features />
       <Pricing />
+      <Editor />  
     </div>
   )
 }
