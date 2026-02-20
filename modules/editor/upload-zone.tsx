@@ -218,6 +218,13 @@ const UploadZone = ({ onImageUpload }: UploadZoneProps) => {
           <label
             htmlFor="file-upload"
             className="cursor-pointer block text-center"
+            onClick={() => {
+              // Ensure the file input is clicked when label is clicked
+              const input = document.getElementById('file-upload');
+              if (input) {
+                input.click();
+              }
+            }}
           >
             <motion.div
               animate={isDragOver ? { scale: 1.1 } : { scale: 1 }}
