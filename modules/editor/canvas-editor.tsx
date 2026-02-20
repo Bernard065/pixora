@@ -76,7 +76,8 @@ const CanvasEditor = ({
               <Image
                 src={originalImage}
                 alt="Original"
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
               />
             </div>
 
@@ -88,7 +89,8 @@ const CanvasEditor = ({
               <Image
                 src={processedImage}
                 alt="Processed"
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
               />
             </div>
 
@@ -116,11 +118,12 @@ const CanvasEditor = ({
             </div>
           </div>
         ) : (
-          <div className="w-full h-full">
+          <div className="w-full h-full relative">
             <Image
               src={processedImage || originalImage}
               alt={processedImage ? "Processed" : "Original"}
-              className="w-full h-full object-contain"
+              fill
+              className="object-contain"
             />
           </div>
         )}

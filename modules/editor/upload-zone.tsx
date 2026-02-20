@@ -176,11 +176,12 @@ const UploadZone = ({ onImageUpload }: UploadZoneProps) => {
             <X className="h-4 w-4 text-foreground hover:text-destructive" />
           </button>
 
-          <div className="aspect-square rounded-lg overflow-hidden">
+          <div className="aspect-square rounded-lg overflow-hidden relative">
             <Image
               src={uploadedImage}
               alt="Uploaded Preview"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 
