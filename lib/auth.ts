@@ -1,4 +1,4 @@
-import { Plan } from '../generated/prisma/enums';
+import { Plan } from '@prisma/client';
 import { NextAuthOptions, DefaultSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
