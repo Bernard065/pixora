@@ -89,7 +89,7 @@ const UploadZone = ({ onImageUpload }: UploadZoneProps) => {
     checkUsage()?.catch(console.error);
   }, [checkUsage]);
 
-  const updateUsage = useCallback(async () => {
+  const updateUsage = useCallback(async (): Promise<boolean> => {
     const response = await fetch("/api/usage", { method: "POST" });
     if (!response.ok) {
       const errorData = await response.json();
@@ -97,13 +97,13 @@ const UploadZone = ({ onImageUpload }: UploadZoneProps) => {
         // Usage limit reached
         setUsageData(errorData);
         setShowPaymentModal(true);
-        throw new Error("Usage limit reached");
+        return false; // Indicate failure - don't proceed with upload
       }
       throw new Error("Failed to update usage");
     }
     const data = await response.json();
     setUsageData(data);
-    return data;
+    return true; // Indicate success - proceed with upload
   }, []);
 
   const handleFiles = useCallback(async (files: File[]) => {
@@ -116,7 +116,12 @@ const UploadZone = ({ onImageUpload }: UploadZoneProps) => {
         await checkUsage();
 
         // Update usage count
-        await updateUsage();
+        const canProceed = await updateUsage();
+        
+        // Don't proceed with upload if usage limit was reached
+        if (!canProceed) {
+          return;
+        }
 
         // Upload to ImageKit
         const imageUrl = await uploadToImageKit(imageFile);
